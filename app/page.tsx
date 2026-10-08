@@ -1,69 +1,898 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+const PLAY_STORE =
+  "https://play.google.com/store/apps/details?id=com.sayjo.app&hl=en_IN";
+
+const APP_STORE =
+  "https://apps.apple.com/in/app/sayjo-mall-to-you-instantly/id6758011402";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-screen overflow-hidden bg-[#f8fafc] text-[#0f172a]">
+
+      {/* =====================================================
+          HEADER
+      ===================================================== */}
+
+      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+
+          <div className="flex h-[70px] items-center justify-between rounded-2xl border border-white/60 bg-white/80 px-5 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl sm:px-7">
+
+            {/* LOGO */}
+            <a href="#" className="flex items-center gap-3">
+
+              {/* Replace this with your actual logo */}
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2596be] font-bold text-white shadow-lg shadow-cyan-200">
+                S
+              </div>
+
+              <div>
+                <div className="text-lg font-bold tracking-tight">
+                  SAYJO
+                </div>
+
+                <div className="-mt-0.5 text-[9px] font-medium uppercase tracking-[0.2em] text-slate-400">
+                  Mall in your Palm
+                </div>
+              </div>
+
+            </a>
+
+
+            {/* DESKTOP NAVIGATION */}
+
+            <nav className="hidden items-center gap-8 lg:flex">
+
+              <a
+                href="#home"
+                className="text-sm font-medium text-slate-600 transition hover:text-[#2596be]"
+              >
+                Home
+              </a>
+
+              <a
+                href="#about"
+                className="text-sm font-medium text-slate-600 transition hover:text-[#2596be]"
+              >
+                About
+              </a>
+
+              <a
+                href="#features"
+                className="text-sm font-medium text-slate-600 transition hover:text-[#2596be]"
+              >
+                Features
+              </a>
+
+              <a
+                href="#how-it-works"
+                className="text-sm font-medium text-slate-600 transition hover:text-[#2596be]"
+              >
+                How it works
+              </a>
+
+            </nav>
+
+
+            {/* DESKTOP CTA */}
+
+            <div className="hidden items-center gap-3 lg:flex">
+
+              <a
+                href={APP_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-slate-600 transition hover:text-[#2596be]"
+              >
+                Get the App
+              </a>
+
+              <a
+                href={PLAY_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-[#0f172a] px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#1e293b]"
+              >
+                Download
+              </a>
+
+            </div>
+
+
+            {/* MOBILE MENU BUTTON */}
+
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 lg:hidden"
+              aria-label="Toggle menu"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              {menuOpen ? (
+                <span className="text-xl">×</span>
+              ) : (
+                <div className="space-y-1.5">
+                  <span className="block h-0.5 w-5 bg-slate-700" />
+                  <span className="block h-0.5 w-5 bg-slate-700" />
+                  <span className="block h-0.5 w-5 bg-slate-700" />
+                </div>
+              )}
+            </button>
+
+          </div>
+
+
+          {/* MOBILE NAVIGATION */}
+
+          {menuOpen && (
+            <div className="mt-2 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl lg:hidden">
+
+              <div className="flex flex-col">
+
+                {[
+                  ["Home", "#home"],
+                  ["About", "#about"],
+                  ["Features", "#features"],
+                  ["How it works", "#how-it-works"],
+                ].map(([title, href]) => (
+                  <a
+                    key={title}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50"
+                  >
+                    {title}
+                  </a>
+                ))}
+
+                <a
+                  href={PLAY_STORE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 rounded-xl bg-[#2596be] px-4 py-3 text-center text-sm font-semibold text-white"
+                >
+                  Download Sayjo
+                </a>
+
+              </div>
+
+            </div>
+          )}
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </header>
+
+
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
+      <section
+        id="home"
+        className="relative min-h-screen overflow-hidden pt-32"
+      >
+
+        {/* Background blobs */}
+
+        <div className="absolute left-[-250px] top-[180px] h-[500px] w-[500px] rounded-full bg-cyan-200/30 blur-[120px]" />
+
+        <div className="absolute right-[-200px] top-[100px] h-[600px] w-[600px] rounded-full bg-blue-200/30 blur-[130px]" />
+
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-24 pt-16 lg:grid-cols-[1fr_0.9fr] lg:px-8 lg:pb-32 lg:pt-24">
+
+
+          {/* LEFT */}
+
+          <div className="max-w-2xl">
+
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-100 bg-white px-4 py-2 shadow-sm">
+
+              <span className="flex h-2 w-2">
+                <span className="absolute h-2 w-2 animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative h-2 w-2 rounded-full bg-green-500" />
+              </span>
+
+              <span className="text-xs font-semibold text-slate-600 sm:text-sm">
+                Fast delivery from your favourite stores
+              </span>
+
+            </div>
+
+
+            <h1 className="text-[48px] font-bold leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-[76px]">
+
+              Your favourite
+
+              <span className="block text-[#2596be]">
+                mall brands.
+              </span>
+
+              <span className="block">
+                At your doorstep.
+              </span>
+
+            </h1>
+
+
+            <p className="mt-7 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              Sayjo brings the shopping experience of your favourite malls
+              directly to your doorstep. Discover brands, explore products,
+              order in seconds and get fast delivery.
+            </p>
+
+
+            {/* BUTTONS */}
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+              <a
+                href={PLAY_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center gap-3 rounded-2xl bg-[#0f172a] px-6 py-4 text-white shadow-xl shadow-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              >
+
+                <span className="text-2xl">▶</span>
+
+                <span className="text-left">
+                  <span className="block text-[9px] uppercase tracking-wide text-slate-400">
+                    Get it on
+                  </span>
+
+                  <span className="text-sm font-semibold">
+                    Google Play
+                  </span>
+                </span>
+
+              </a>
+
+
+              <a
+                href={APP_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 text-slate-900 shadow-xl shadow-slate-200 ring-1 ring-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              >
+
+                <span className="text-2xl">●</span>
+
+                <span className="text-left">
+                  <span className="block text-[9px] uppercase tracking-wide text-slate-400">
+                    Download on the
+                  </span>
+
+                  <span className="text-sm font-semibold">
+                    App Store
+                  </span>
+                </span>
+
+              </a>
+
+            </div>
+
+
+            {/* TRUST */}
+
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-slate-500">
+
+              <span className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                Nearby stores
+              </span>
+
+              <span className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                Fast delivery
+              </span>
+
+              <span className="flex items-center gap-2">
+                <span className="text-green-500">✓</span>
+                Easy checkout
+              </span>
+
+            </div>
+
+          </div>
+
+
+          {/* RIGHT - PHONE */}
+
+       {/* RIGHT - SAYJO APP IMAGE */}
+<div className="relative flex min-h-[620px] items-center justify-center">
+
+  {/* Background glow */}
+  <div className="absolute h-[420px] w-[420px] rounded-full bg-cyan-200/40 blur-[100px]" />
+
+  {/* Floating order card */}
+  <div className="absolute left-0 top-24 z-20 hidden rounded-2xl border border-white bg-white/90 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.15)] backdrop-blur sm:block">
+
+    <div className="flex items-center gap-3">
+
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-50 text-green-600">
+        ✓
+      </div>
+
+      <div>
+        <p className="text-sm font-bold">
+          Order Confirmed
+        </p>
+
+        <p className="mt-0.5 text-xs text-slate-400">
+          Your order is being prepared
+        </p>
+      </div>
+
     </div>
+
+  </div>
+
+
+  {/* Floating delivery card */}
+  <div className="absolute bottom-24 right-0 z-20 hidden rounded-2xl border border-white bg-white/90 p-4 shadow-[0_20px_50px_rgba(15,23,42,0.15)] backdrop-blur sm:block">
+
+    <div className="flex items-center gap-3">
+
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-50 text-lg">
+        🚴
+      </div>
+
+      <div>
+        <p className="text-sm font-bold">
+          On the way
+        </p>
+
+        <p className="mt-0.5 text-xs text-slate-400">
+          Delivery in progress
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {/* Sayjo App Image */}
+  <div className="relative z-10">
+
+    <Image
+      src="/sayjo-app.png"
+      alt="Sayjo App"
+      width={500}
+      height={650}
+      priority
+      className="h-auto max-h-[650px] w-auto max-w-[90vw] object-contain drop-shadow-[0_35px_50px_rgba(15,23,42,0.25)]"
+    />
+
+  </div>
+
+</div>
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          ABOUT
+      ===================================================== */}
+
+      <section id="about" className="relative bg-white py-24 sm:py-32">
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+          <div className="grid items-center gap-16 lg:grid-cols-2">
+
+            <div>
+
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#2596be]">
+                About Sayjo
+              </span>
+
+              <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+                Shopping should be
+                <span className="text-[#2596be]">
+                  {" "}simple.
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                Sayjo connects you with your favourite brands and stores
+                available at nearby malls. You get the convenience of
+                online shopping with the products and brands you already
+                love.
+              </p>
+
+              <p className="mt-5 max-w-xl leading-7 text-slate-500">
+                Browse products, choose what you want, place your order
+                and let Sayjo take care of getting it from the store to
+                your doorstep.
+              </p>
+
+
+              <div className="mt-8">
+
+                <a
+                  href={PLAY_STORE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-semibold text-[#2596be] transition hover:gap-3"
+                >
+                  Start shopping
+                  <span>→</span>
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* Stats */}
+
+            <div className="grid grid-cols-2 gap-4">
+
+              <div className="rounded-3xl bg-slate-50 p-7 sm:p-9">
+
+                <div className="text-4xl font-bold text-[#2596be]">
+                  60
+                </div>
+
+                <div className="mt-1 text-lg font-semibold">
+                  Minutes
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  Fast delivery from nearby stores.
+                </p>
+
+              </div>
+
+
+              <div className="mt-8 rounded-3xl bg-[#0f172a] p-7 text-white sm:p-9">
+
+                <div className="text-4xl font-bold">
+                  1
+                </div>
+
+                <div className="mt-1 text-lg font-semibold">
+                  App
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  Everything you need to shop.
+                </p>
+
+              </div>
+
+
+              <div className="-mt-8 rounded-3xl bg-[#2596be] p-7 text-white sm:p-9">
+
+                <div className="text-4xl font-bold">
+                  24/7
+                </div>
+
+                <div className="mt-1 text-lg font-semibold">
+                  Shopping
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-cyan-50">
+                  Discover products whenever you want.
+                </p>
+
+              </div>
+
+
+              <div className="rounded-3xl bg-slate-50 p-7 sm:p-9">
+
+                <div className="text-4xl font-bold text-[#2596be]">
+                  ∞
+                </div>
+
+                <div className="mt-1 text-lg font-semibold">
+                  Choices
+                </div>
+
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  Explore brands and products around you.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          FEATURES
+      ===================================================== */}
+
+      <section id="features" className="bg-[#f8fafc] py-24 sm:py-32">
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+          <div className="max-w-2xl">
+
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#2596be]">
+              Why Sayjo
+            </span>
+
+            <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+              Everything you need.
+              <br />
+              Nothing you don't.
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-500">
+              A simple shopping experience designed around speed,
+              convenience and the brands you already love.
+            </p>
+
+          </div>
+
+
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+            {[
+              {
+                icon: "⚡",
+                title: "Fast Delivery",
+                text: "Get your favourite products delivered quickly from stores around you.",
+              },
+              {
+                icon: "🛍️",
+                title: "Favourite Brands",
+                text: "Discover products from the brands and stores you already know.",
+              },
+              {
+                icon: "📍",
+                title: "Nearby Stores",
+                text: "Sayjo connects you with stores available close to your location.",
+              },
+              {
+                icon: "🔎",
+                title: "Easy Discovery",
+                text: "Find products and brands quickly with an intuitive shopping experience.",
+              },
+              {
+                icon: "📦",
+                title: "Track Your Order",
+                text: "Stay updated throughout the journey from store to doorstep.",
+              },
+              {
+                icon: "🔒",
+                title: "Secure Shopping",
+                text: "Enjoy a smooth checkout and reliable shopping experience.",
+              },
+            ].map((feature) => (
+
+              <div
+                key={feature.title}
+                className="group rounded-3xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-2 hover:border-cyan-200 hover:shadow-[0_25px_60px_rgba(15,23,42,0.1)] sm:p-8"
+              >
+
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-50 text-2xl transition duration-300 group-hover:bg-[#2596be]">
+                  {feature.icon}
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold">
+                  {feature.title}
+                </h3>
+
+                <p className="mt-3 leading-7 text-slate-500">
+                  {feature.text}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          HOW IT WORKS
+      ===================================================== */}
+
+      <section id="how-it-works" className="bg-white py-24 sm:py-32">
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+
+          <div className="text-center">
+
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#2596be]">
+              How it works
+            </span>
+
+            <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+              From mall to doorstep
+              <br />
+              in three simple steps.
+            </h2>
+
+          </div>
+
+
+          <div className="mt-16 grid gap-12 md:grid-cols-3">
+
+            {[
+              {
+                number: "01",
+                title: "Set your location",
+                text: "Tell Sayjo where you want your order delivered and discover stores available near you.",
+              },
+              {
+                number: "02",
+                title: "Choose what you love",
+                text: "Explore brands and products, select your favourites and add them to your cart.",
+              },
+              {
+                number: "03",
+                title: "Get it delivered",
+                text: "Place your order and sit back while your products make their way to your doorstep.",
+              },
+            ].map((step) => (
+
+              <div key={step.number} className="relative">
+
+                <div className="text-7xl font-black tracking-tighter text-cyan-100">
+                  {step.number}
+                </div>
+
+                <h3 className="mt-2 text-2xl font-bold">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-slate-500">
+                  {step.text}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          DOWNLOAD CTA
+      ===================================================== */}
+
+      <section className="px-6 pb-24">
+
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[40px] bg-[#0f172a] px-7 py-20 sm:px-14 lg:px-20">
+
+          {/* Decorations */}
+
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+
+          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
+
+
+          <div className="relative grid items-center gap-12 lg:grid-cols-[1fr_auto]">
+
+            <div>
+
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+                Download Sayjo
+              </span>
+
+              <h2 className="mt-5 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+                Your next shopping trip
+                <span className="text-cyan-400">
+                  {" "}starts here.
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-xl text-lg leading-8 text-slate-400">
+                Download Sayjo and bring your favourite mall brands
+                closer to home.
+              </p>
+
+            </div>
+
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+
+              <a
+                href={PLAY_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-white px-7 py-4 text-center text-sm font-bold text-slate-900 transition hover:-translate-y-1 hover:bg-slate-100"
+              >
+                Download for Android
+              </a>
+
+              <a
+                href={APP_STORE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-[#2596be] px-7 py-4 text-center text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-[#2187aa]"
+              >
+                Download for iPhone
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          FOOTER
+      ===================================================== */}
+
+      <footer className="border-t border-slate-200 bg-white">
+
+        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+
+            {/* BRAND */}
+
+            <div className="sm:col-span-2">
+
+              <div className="flex items-center gap-3">
+
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2596be] font-bold text-white">
+                  S
+                </div>
+
+                <div>
+
+                  <div className="text-xl font-bold">
+                    Sayjo
+                  </div>
+
+                  <div className="text-[9px] uppercase tracking-[0.2em] text-slate-400">
+                    Mall to you
+                  </div>
+
+                </div>
+
+              </div>
+
+              <p className="mt-6 max-w-md leading-7 text-slate-500">
+                Your favourite mall brands, delivered directly to your
+                doorstep. Shop smarter with Sayjo.
+              </p>
+
+
+              <div className="mt-6 flex gap-3">
+
+                <a
+                  href={PLAY_STORE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 items-center rounded-xl bg-slate-100 px-4 text-xs font-semibold transition hover:bg-slate-200"
+                >
+                  Google Play
+                </a>
+
+                <a
+                  href={APP_STORE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 items-center rounded-xl bg-slate-100 px-4 text-xs font-semibold transition hover:bg-slate-200"
+                >
+                  App Store
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* COMPANY */}
+
+            <div>
+
+              <h4 className="font-bold">
+                Company
+              </h4>
+
+              <div className="mt-5 space-y-4 text-sm text-slate-500">
+
+                <a
+                  href="#about"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  About
+                </a>
+
+                <a
+                  href="#features"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  Features
+                </a>
+
+                <a
+                  href="#how-it-works"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  How it works
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* LEGAL */}
+
+            <div>
+
+              <h4 className="font-bold">
+                Legal
+              </h4>
+
+              <div className="mt-5 space-y-4 text-sm text-slate-500">
+
+                <a
+                  href="#"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  Privacy Policy
+                </a>
+
+                <a
+                  href="#"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  Terms & Conditions
+                </a>
+
+                <a
+                  href="#"
+                  className="block transition hover:text-[#2596be]"
+                >
+                  Contact Us
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          {/* BOTTOM */}
+
+          <div className="mt-14 flex flex-col gap-4 border-t border-slate-200 pt-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+
+            <p>
+              © 2026 Sayjo. All rights reserved.
+            </p>
+
+            <p>
+              Made for a better shopping experience.
+            </p>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+    </main>
   );
 }
