@@ -675,7 +675,7 @@ export default function Home() {
 
       <section className="px-6 pb-24">
 
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[40px] bg-[#0f172a] px-7 py-20 sm:px-14 lg:px-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[10px] bg-[#0f172a] px-7 py-20 sm:px-14 lg:px-20">
 
           {/* Decorations */}
 
@@ -734,6 +734,87 @@ export default function Home() {
         </div>
 
       </section>
+
+
+
+
+{/* JOIN OUR COMMUNITY */}
+<section className="px-6 py-16 sm:py-20">
+  <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[10px] bg-gradient-to-br from-[#eaf8fc] via-white to-[#f3eaff] px-6 py-14 text-center sm:px-12 sm:py-20">
+
+    <div className="relative mx-auto max-w-2xl">
+
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-[#2596be] shadow-lg shadow-slate-200/60">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+        </svg>
+      </div>
+
+     <p className="mt-6 text-sm font-bold uppercase tracking-[0.2em] text-[#2596be]">
+  Join Our Community
+</p>
+
+<h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+  Be part of the{" "}
+  <span className="text-[#2596be]">SAYJO Family.</span>
+</h2>
+
+<p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+  Join our WhatsApp community to stay updated on new brands,
+  exciting offers, shopping updates and everything happening
+  at Sayjo.
+</p>
+
+      
+<a
+  href="https://chat.whatsapp.com/LioIPHewJeAKDHhwCSruFl"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-[#25D366] px-7 py-4 font-semibold text-white shadow-lg shadow-green-200/60 transition duration-300 hover:-translate-y-1 hover:bg-[#20BA5A] hover:shadow-xl"
+>
+  {/* WhatsApp icon */}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="23"
+    height="23"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z" />
+    <path d="M9 9a1 1 0 0 0-1 1c0 2 3 5 5 5a1 1 0 0 0 1-1l-1.5-1-1 1a5 5 0 0 1-2.5-2.5l1-1z" />
+  </svg>
+
+  Join Our WhatsApp Community
+  <span aria-hidden="true">↗</span>
+</a>
+
+
+      <p className="mt-4 text-sm text-slate-500">
+        Your favourite brands. Your shopping community.
+      </p>
+
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -840,41 +921,86 @@ export default function Home() {
 
             </div>
 
+{/* FOLLOW US */}
+<div>
+  <h4 className="font-bold text-slate-950">
+    Follow Us
+  </h4>
 
-            {/* LEGAL */}
+  <div className="mt-5 space-y-4 text-sm text-slate-500">
 
-            <div>
+    {/* Instagram */}
+    <a
+      href="https://www.instagram.com/sayjo.official/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow Sayjo on Instagram"
+      className="flex items-center gap-3 transition hover:text-[#2596be]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="19"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+      </svg>
 
-              <h4 className="font-bold">
-                Legal
-              </h4>
+      <span>Instagram</span>
+      <span className="ml-auto">↗</span>
+    </a>
 
-              <div className="mt-5 space-y-4 text-sm text-slate-500">
+    {/* LinkedIn */}
+    <a
+      href="https://www.linkedin.com/company/sayjo/?originalSubdomain=in"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow Sayjo on LinkedIn"
+      className="flex items-center gap-3 transition hover:text-[#2596be]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="19"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
 
-                <a
-                  href="#"
-                  className="block transition hover:text-[#2596be]"
-                >
-                  Privacy Policy
-                </a>
+      <span>LinkedIn</span>
+      <span className="ml-auto">↗</span>
+    </a>
 
-                <a
-                  href="#"
-                  className="block transition hover:text-[#2596be]"
-                >
-                  Terms & Conditions
-                </a>
+  </div>
+</div>
 
-                <a
-                  href="#"
-                  className="block transition hover:text-[#2596be]"
-                >
-                  Contact Us
-                </a>
 
-              </div>
 
-            </div>
+
+
+
+
+
+
+
+
+
 
           </div>
 
