@@ -28,12 +28,12 @@ export default function Home() {
             <a href="#" className="flex items-center gap-3">
 
               {/* Replace this with your actual logo */}
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2596be] font-bold text-white shadow-lg shadow-cyan-200">
+              <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-black font-bold text-[#26ace9] shadow-lg ">
                 S
               </div>
 
               <div>
-                <div className="text-lg font-bold tracking-tight">
+                <div className="text-lg font-bold tracking-tight text-[#1ea5fc]">
                   SAYJO
                 </div>
 
@@ -837,14 +837,14 @@ export default function Home() {
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2596be] font-bold text-white">
+                <div className="flex h-10 w-10 items-center justify-center rounded-sm text-[#26ace9] font-bold bg-black">
                   S
                 </div>
 
                 <div>
 
-                  <div className="text-xl font-bold">
-                    Sayjo
+                  <div className="text-xl font-bold text-[#1ea5fc]">
+                    SAYJO
                   </div>
 
                   <div className="text-[9px] uppercase tracking-[0.2em] text-slate-400">
