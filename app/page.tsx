@@ -173,7 +173,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative min-h-screen overflow-hidden pt-32"
+        className="relative min-h-screen overflow-hidden pt-16"
       >
 
         {/* Background blobs */}
@@ -527,7 +527,7 @@ export default function Home() {
             <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
               Everything you need.
               <br />
-              Nothing you don't.
+              Nothing you dont.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-500">
@@ -736,6 +736,10 @@ export default function Home() {
       </section>
 
 
+
+      
+
+
       {/* =====================================================
           FOOTER
       ===================================================== */}
@@ -763,7 +767,7 @@ export default function Home() {
                   </div>
 
                   <div className="text-[9px] uppercase tracking-[0.2em] text-slate-400">
-                    Mall to you
+                    Mall in your Palm
                   </div>
 
                 </div>
@@ -880,7 +884,7 @@ export default function Home() {
           <div className="mt-14 flex flex-col gap-4 border-t border-slate-200 pt-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
 
             <p>
-              © 2026 Sayjo. All rights reserved.
+              © 2026 Alisa Avenue Private Limited. All rights reserved.
             </p>
 
             <p>
