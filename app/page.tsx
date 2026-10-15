@@ -28,19 +28,16 @@ export default function Home() {
             <a href="#" className="flex items-center gap-3">
 
               {/* Replace this with your actual logo */}
-              <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-black font-bold text-[#26ace9] shadow-lg ">
-                S
-              </div>
+            <Image
+    src="/logo.png"
+    alt="Sayjo logo"
+    width={100}
+    height={70}
+    priority
+    className="h-30 w-29 rounded-sm object-contain"
+  />
 
-              <div>
-                <div className="text-lg font-bold tracking-tight text-[#1ea5fc]">
-                  SAYJO
-                </div>
-
-                <div className="-mt-0.5 text-[9px] font-medium uppercase tracking-[0.2em] text-slate-400">
-                  Mall in your Palm
-                </div>
-              </div>
+             
 
             </a>
 
